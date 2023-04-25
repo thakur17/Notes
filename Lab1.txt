@@ -1,0 +1,162 @@
+ //Console.WriteLine("Hello World!");
+            // Outputs text without a newline
+            Console.Write("What is your name? ");
+
+            // Stores data entered by user in name
+            string name = Console.ReadLine();
+
+            // Outputs Hello + value stored in name
+            Console.WriteLine($"Hello {name}");
+
+            // ------ VARIABLES ------
+            // Used to store different types of data
+
+            // Bools store true or false
+             var canIVote = true;
+
+            // INTEGERS
+            // Integers are 32-bit signed integers
+            Console.WriteLine("Biggest Integer : {0}", int.MaxValue);
+            Console.WriteLine("Smallest Integer : {0}", int.MinValue);
+
+string fullNameWithTabSeparator = "Bob\tSmith";
+            //int userChoice = Console.Read(); // assigning from a function
+
+            WriteLine(fullNameWithTabSeparator);
+            
+            string filePath = @"C:\televisions\sony\bravia.txt"; //@ symbol to use a verbatim literal string
+            Console.WriteLine(filePath);
+
+            Console.WriteLine($"int uses {sizeof(int)} bytes and can store numbers in the range " +
+                $"{ int.MinValue} to {int.MaxValue}.");
+
+
+            Console.WriteLine($"double uses {sizeof(double)} bytes and can store numbers in the range { double.MinValue}" +
+                $"to {double.MaxValue}.");
+
+Console.WriteLine($"decimal uses {sizeof(decimal)} bytes and can store numbers in the range { decimal.MinValue}" +
+    $"to {decimal.MaxValue}.");
+
+            double a = 0.1;
+            double b = 0.3;
+            if (a + b == 0.3)
+            {
+                Console.WriteLine($"{a} + {b} equals 0.3");
+            }
+            else
+            {
+                Console.WriteLine($"{a} + {b} is NOT equal 0.3");
+            }
+
+            Console.WriteLine("Using decimals:");
+            decimal c = 0.1M; // M suffix means a decimal literal value
+            decimal d = 0.2M;
+            if (c + d == 0.3M)
+            {
+                Console.WriteLine($"{c} + {d} equals 0.3");
+            }
+            else
+            {
+                Console.WriteLine($"{c} + {d} does NOT equal 0.3");
+            }
+            /*
+             * The decimal type is accurate because it stores the number as a large integer and 
+               shifts the decimal point. For example, 0.1 is stored as 1, with a note to shift the 
+               decimal point one place to the left. 12.75 is stored as 1275, with a note to shift the 
+               decimal point two places to the left.
+             */
+
+            object height = 1.88; // storing a double in an object
+            object name = "Amir"; // storing a string in an object
+            Console.WriteLine($"{name} is {height} metres tall.");
+           // int length1 = name.Length; // gives compile error!
+            int length2 = ((string)name).Length; // tell compiler it is a string
+            Console.WriteLine($"{name} has {length2} characters.");
+
+            string[] names; // can reference any array of strings
+                            // allocating memory for four strings in an array
+            names = new string[4];
+            // storing items at index positions
+            names[0] = "Kate";
+            names[1] = "Jack";
+            names[2] = "Rebecca";
+            names[3] = "Tom";
+            // looping through the names
+            for (int i = 0; i < names.Length; i++)
+            {
+                // output the item at index position i
+                Console.WriteLine(names[i]);
+            }
+
+            int thisCannotBeNull = 4;
+            //thisCannotBeNull = null; // compile error!
+            int? thisCouldBeNull = null;
+            Console.WriteLine(thisCouldBeNull);
+            Console.WriteLine(thisCouldBeNull.GetValueOrDefault());
+            thisCouldBeNull = 7;
+            Console.WriteLine(thisCouldBeNull);
+            Console.WriteLine(thisCouldBeNull.GetValueOrDefault());
+
+            string applesText = "Apples";
+            int applesCount = 1234;
+            string bananasText = "Bananas";
+            int bananasCount = 56789;
+            Console.WriteLine(
+             format: "{0,-8} {1,6:N0}",
+             arg0: "Name",
+             arg1: "Count");
+            Console.WriteLine(format: "{1,-8} {1,6:N2}",
+ arg0: applesText,
+ arg1: applesCount);
+            Console.WriteLine(
+             format: "{0,-8} {1,6:N0}",
+             arg0: bananasText,
+             arg1: bananasCount);
+            /*
+            WriteLine($"There are {args.Length} arguments.");
+            foreach (string arg in args)
+            {
+                WriteLine(arg);
+            }
+            */
+            int r = 3;
+            int t = r++; // increment c before assigning it
+            WriteLine($"r is {r}, t is {t}");
+
+            //operators
+            int e = 11;
+            int f = 3;
+            double g = 11.0;
+            WriteLine($"g is {g:N1}, f is {f}");
+            WriteLine($"e % f = {e % f}"); //modulo operator
+            WriteLine($"g / f = {g / f}");
+
+            //logical operations
+            bool u = true;
+            bool v = false;
+            WriteLine($"AND | u | v ");
+            WriteLine($"u | {u & u,-5} | {u & v,-5} ");
+            WriteLine($"v | {v & u,-5} | {v & v,-5} ");
+            WriteLine();
+            WriteLine($"OR | u | v ");
+            WriteLine($"u | {u | u,-5} | {u | v,-5} ");
+            WriteLine($"v | {v | u,-5} | {v | v,-5} ");
+            WriteLine();
+            WriteLine($"XOR | u | v ");
+            WriteLine($"u | {u ^ u,-5} | {u ^ v,-5} ");
+            WriteLine($"v | {v ^ u,-5} | {v ^ v,-5} ");
+
+            int a = 10; // 0000 1010
+            int b = 6; // 0000 0110
+            WriteLine($"a = {a}");
+            WriteLine($"b = {b}");
+            WriteLine($"a & b = {a & b}"); // 2-bit column only
+            WriteLine($"a | b = {a | b}"); // 8, 4, and 2-bit columns
+            WriteLine($"a ^ b = {a ^ b}"); // 8 and 4-bit columns
+
+            // 0101 0000 left-shift a by three bit columns
+            WriteLine($"a << 3 = {a << 3}");
+            // multiply a by 8
+            WriteLine($"a * 8 = {a * 8}");
+            // 0000 0011 right-shift b by one bit column
+            WriteLine($"b >> 1 = {b >> 1}");
