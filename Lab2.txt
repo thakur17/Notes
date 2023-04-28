@@ -1,0 +1,129 @@
+//Exception handling with try catch
+
+WriteLine("Before parsing");
+Write("What is your age? ");
+string input = Console.ReadLine();
+try
+{
+int age = int.Parse(input);
+WriteLine($"You are {age} years old.");
+}
+catch
+{
+}
+WriteLine("After parsing");
+
+//Modify with the following catch block
+
+catch(Exception ex)
+{
+WriteLine($"{ex.GetType()} says {ex.Message}");
+}
+
+//Customized message
+
+catch (FormatException)
+{
+WriteLine("The age you entered is not a valid number format.");
+}
+
+
+//Creating class library
+//Create a folder ooplab and make two sub-folbers, namely OopApp and OopClassLib
+//On OopClassLib, create a new classlib project, either via GUI or CLI, CLI command- dotnet new classlib //OopClasslib
+
+public class Person
+    {
+        public void WriteToConsole()
+        {
+            WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
+        }
+        public string GetOrigin()
+        {
+            return $"{Name} was born on {HomePlanet}.";
+        }
+        // fields
+        public string Name;
+        public DateTime DateOfBirth;
+        public WondersOfTheAncientWorld 
+            FavoriteAncientWonder;
+        public List<Person> Children = new List<Person>();
+        public readonly string HomePlanet = "Earth";
+    }
+
+    public enum WondersOfTheAncientWorld
+    {
+        GreatPyramidOfGiza,
+        HangingGardensOfBabylon,
+        Statue_Of_ZeusAt_Olympia,
+        TempleOfArtemisAtEphesus,
+        MausoleumAtHalicarnassus,
+        ColossusOfRhodes,
+        LighthouseOfAlexandria
+          
+    }
+
+}
+
+namespace Packt.Shared
+{
+    public class BankAccount
+    {
+        public string AccountName; // instance member
+        public decimal Balance; // instance member
+        public static decimal InterestRate; // shared member
+    }
+}
+
+
+ BankAccount.InterestRate = 0.012M; // store a shared value
+            var jonesAccount = new BankAccount();
+            jonesAccount.AccountName = "Mrs. Jones";
+            jonesAccount.Balance = 2400;
+            WriteLine(format: "{0} earned {1:C} interest.",
+             arg0: jonesAccount.AccountName,
+             arg1: jonesAccount.Balance * BankAccount.InterestRate);
+            var gerrierAccount = new BankAccount();
+            gerrierAccount.AccountName = "Ms. Gerrier";
+            gerrierAccount.Balance = 98;
+            WriteLine(format: "{0} earned {1:C} interest.",
+             arg0: gerrierAccount.AccountName,
+             arg1: gerrierAccount.Balance * BankAccount.InterestRate);
+
+            var bob = new Person();
+            bob.Name = "Bob Smith";
+            bob.DateOfBirth = new DateTime(2023, 04, 25);
+            //bob.WriteToConsole();
+            //WriteLine(bob.GetOrigin());
+
+            //           WriteLine(format: "{0} was born on {1:dddd, d MMMM yyyy}",
+            //            arg0: bob.Name,
+            //            arg1: bob.DateOfBirth);
+
+            //           var alice = new Person
+            //           {
+            //               Name = "Alice Jones",
+            //               DateOfBirth = new DateTime(1998, 3, 7)
+            //           };
+            //           WriteLine(
+            //            format: "{0} was born on {1:dd MMM yy}",
+            //            arg0: alice.Name,
+            //            arg1: alice.DateOfBirth);
+            //           bob.FavoriteAncientWonder =
+            //WondersOfTheAncientWorld.Statue_Of_ZeusAt_Olympia;
+            //           WriteLine(format:
+            //            "{0}'s favorite wonder is {1}. It's integer is {2}.",
+            //            arg0: bob.Name,
+            //            arg1: bob.FavoriteAncientWonder,
+            //            arg2: (int)bob.FavoriteAncientWonder);
+
+            bob.Children.Add(new Person { Name = "Alfred" });
+            bob.Children.Add(new Person { Name = "Zoe" });
+            WriteLine(
+             $"{bob.Name} has {bob.Children.Count} children, whose names are:");
+            for (int child = 0; child < bob.Children.Count; child++)
+            {
+                WriteLine($" {bob.Children[child].Name}");
+            }
+ 
+
