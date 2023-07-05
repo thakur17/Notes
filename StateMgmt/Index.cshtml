@@ -1,23 +1,5 @@
-﻿@model string
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
-    ViewData["Title"] = "Home Page";
-}
-
-@if (!string.IsNullOrWhiteSpace(Model))
-{
-    <div> Welcome back, @Model</div>
-    @Html.ActionLink("Forget me", "DeleteCookie")
-
-}
-else
-{
-    <form asp-action="OnPost">
-        <span> Wecome to my page</span>
-        <br />
-        <label> Type your name</label>
-        @Html.TextBox("Name")
-        <div class=" form-group">
-            <input type="submit" value="Update" class="btn btn-primary" />
-        </div>
-    </form>
 }
