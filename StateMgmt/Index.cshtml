@@ -1,0 +1,23 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (!string.IsNullOrWhiteSpace(Model))
+{
+    <div> Welcome back, @Model</div>
+    @Html.ActionLink("Forget me", "DeleteCookie")
+
+}
+else
+{
+    <form asp-action="OnPost">
+        <span> Wecome to my page</span>
+        <br />
+        <label> Type your name</label>
+        @Html.TextBox("Name")
+        <div class=" form-group">
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </div>
+    </form>
+}
